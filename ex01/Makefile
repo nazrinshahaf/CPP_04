@@ -1,0 +1,32 @@
+NAME = Animal
+CC = c++
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
+SANITIZE = -fsanitize=address
+RM = rm -f
+
+SRC = Animal.cpp Dog.cpp Cat.cpp Brain.cpp\
+
+MAIN = main.cpp
+
+$(NAME):
+	$(CC) $(CFLAGS) $(MAIN) $(SRC) -o $(NAME)
+
+all: $(NAME)
+
+clean:
+	$(RM) $(NAME)
+
+fclean:	clean
+		$(RM) $(NAME)
+
+re: clean all
+
+test: re
+	$(re) ./$(NAME)
+
+san: fclean 
+	$(fclean)
+	$(CC) $(CFLAGS) $(SANITIZE) $(MAIN) $(SRC) -o $(NAME)
+	./$(NAME)
+
+.PHONY:	all clean fclean re test
