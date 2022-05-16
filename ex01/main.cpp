@@ -6,7 +6,7 @@
 /*   By: nfernand <nfernand@student.42kl.edu.m      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 10:26:01 by nfernand          #+#    #+#             */
-/*   Updated: 2022/05/12 19:48:14 by nfernand         ###   ########.fr       */
+/*   Updated: 2022/05/16 13:29:31 by nfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,28 +23,28 @@ using	std::cout;
 
 int	main()
 {
-	Animal	*animal_array[10];
+	//Animal	*animal_array[10];
 
-	for (int i = 0; i < 10; i++)
-	{
-		if (i < 5)
-			animal_array[i] = new Dog();
-		else
-			animal_array[i] = new Cat();
-	}
+	//for (int i = 0; i < 10; i++)
+	//{
+	//	if (i < 5)
+	//		animal_array[i] = new Dog();
+	//	else
+	//		animal_array[i] = new Cat();
+	//}
 
-	cout << endl;
+	//cout << endl;
 
-	for (int i = 0; i < 10; i++)
-		cout << "type " << i << ":" YELLOW " <" << animal_array[i]->getType() << ">" RESET << endl;
+	//for (int i = 0; i < 10; i++)
+	//	cout << "type " << i << ":" YELLOW " <" << animal_array[i]->getType() << ">" RESET << endl;
 
-	cout << endl;
+	//cout << endl;
 
-	for (int i = 0; i < 10; i++)
-		delete animal_array[i];
+	//for (int i = 0; i < 10; i++)
+	//	delete animal_array[i];
 
-	//system("leaks Animal");
-	return 0;
+	////system("leaks Animal");
+	//return 0;
 
 	//const Animal* j = new Dog();
 	//const Animal* i = new Cat();
@@ -52,5 +52,21 @@ int	main()
 	//delete j;//should not create a leak
 	//delete i;
 	//system("leaks Animal");
-	return 0;
+	//return 0;
+	
+
+	Cat		*ori = new Cat();
+
+	Cat		*copy = new Cat(*ori);
+
+	cout << "ori type : " << ori->getType() << endl;
+	cout << "copy type : " << copy->getType() << endl;
+	ori->setType("not a cat??");
+	cout << "ori type : " << ori->getType() << endl;
+	cout << "copy type : " << copy->getType() << endl;
+
+	delete ori;
+	cout << "copy type : " << copy->getType() << endl;
+	delete copy;
+
 }
