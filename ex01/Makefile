@@ -9,7 +9,7 @@ SRC = Animal.cpp Dog.cpp Cat.cpp Brain.cpp\
 MAIN = main.cpp
 
 $(NAME):
-	$(CC) $(CFLAGS) $(MAIN) $(SRC) -o $(NAME)
+	$(CC) $(CFLAGS) $(SANITIZE) $(MAIN) $(SRC) -o $(NAME)
 
 all: $(NAME)
 
@@ -20,6 +20,10 @@ fclean:	clean
 		$(RM) $(NAME)
 
 re: clean all
+
+leaks: re
+	$(CC) $(CFLAGS) $(MAIN) $(SRC) -o $(NAME)
+	./$(NAME)
 
 test: re
 	$(re) ./$(NAME)

@@ -6,7 +6,7 @@
 /*   By: nfernand <nfernand@student.42kl.edu.m      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 14:08:11 by nfernand          #+#    #+#             */
-/*   Updated: 2022/05/12 15:07:35 by nfernand         ###   ########.fr       */
+/*   Updated: 2022/05/17 11:50:46 by nazrinsha        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ class	Brain
 	public:
 		Brain();
 		~Brain();
+		Brain(Brain const &tocopy);
+
+		Brain &operator=(Brain const &tocopy);
 
 		void	sayIdeas() const;
 

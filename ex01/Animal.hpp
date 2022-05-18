@@ -6,7 +6,7 @@
 /*   By: nfernand <nfernand@student.42kl.edu.m      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 10:08:34 by nfernand          #+#    #+#             */
-/*   Updated: 2022/05/12 15:01:15 by nfernand         ###   ########.fr       */
+/*   Updated: 2022/05/18 18:01:04 by nazrinsha        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class	Animal
 		Animal();
 		virtual	~Animal();
 
-		virtual void	makeSound() const;
+		void	makeSound() const;
 
 		void	setType(const string type);
 		string	getType() const;

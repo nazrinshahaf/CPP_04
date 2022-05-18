@@ -6,7 +6,7 @@
 /*   By: nfernand <nfernand@student.42kl.edu.m      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 10:26:01 by nfernand          #+#    #+#             */
-/*   Updated: 2022/05/16 13:29:31 by nfernand         ###   ########.fr       */
+/*   Updated: 2022/05/18 18:11:13 by nazrinsha        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,27 +23,27 @@ using	std::cout;
 
 int	main()
 {
-	//Animal	*animal_array[10];
+	Animal	*animal_array[10];
 
-	//for (int i = 0; i < 10; i++)
-	//{
-	//	if (i < 5)
-	//		animal_array[i] = new Dog();
-	//	else
-	//		animal_array[i] = new Cat();
-	//}
+	for (int i = 0; i < 10; i++)
+	{
+		if (i < 5)
+			animal_array[i] = new Dog();
+		else
+			animal_array[i] = new Cat();
+	}
 
-	//cout << endl;
+	cout << endl;
 
-	//for (int i = 0; i < 10; i++)
-	//	cout << "type " << i << ":" YELLOW " <" << animal_array[i]->getType() << ">" RESET << endl;
+	for (int i = 0; i < 10; i++)
+		cout << "type " << i << ":" YELLOW " <" << animal_array[i]->getType() << ">" RESET << endl;
 
-	//cout << endl;
+	cout << endl;
 
-	//for (int i = 0; i < 10; i++)
-	//	delete animal_array[i];
+	for (int i = 0; i < 10; i++)
+		delete animal_array[i];
 
-	////system("leaks Animal");
+	system("leaks Animal");
 	//return 0;
 
 	//const Animal* j = new Dog();
@@ -55,18 +55,31 @@ int	main()
 	//return 0;
 	
 
-	Cat		*ori = new Cat();
+	//Cat		*ori = new Cat();
+	//Cat		*copy = new Cat(*ori);
 
-	Cat		*copy = new Cat(*ori);
+	//cout << "ori brain address: <" << ori->getBrain() << ">" << endl;
+	//cout << "copy brain address: <" << copy->getBrain() << ">" << endl;
+	//cout << "ori brain type: <" << ori->getType()<< ">" << endl;
+	//cout << "copy brain type: <" << copy->getType()<< ">" << endl;
+	//copy->setType("fake cat");
+	//cout << "ori brain type: <" << ori->getType()<< ">" << endl;
+	//cout << "copy brain type: <" << copy->getType()<< ">" << endl;
+	//delete ori;
+	//copy->getBrain()->sayIdeas();
+	//delete copy;
 
-	cout << "ori type : " << ori->getType() << endl;
-	cout << "copy type : " << copy->getType() << endl;
-	ori->setType("not a cat??");
-	cout << "ori type : " << ori->getType() << endl;
-	cout << "copy type : " << copy->getType() << endl;
+	//Dog		*ori = new Dog();
+	//Dog		*copy = new Dog(*ori);
 
-	delete ori;
-	cout << "copy type : " << copy->getType() << endl;
-	delete copy;
-
+	//cout << "ori brain address: <" << ori->getBrain() << ">" << endl;
+	//cout << "copy brain address: <" << copy->getBrain() << ">" << endl;
+	//cout << "ori brain type: <" << ori->getType()<< ">" << endl;
+	//cout << "copy brain type: <" << copy->getType()<< ">" << endl;
+	//copy->setType("fake cat");
+	//cout << "ori brain type: <" << ori->getType()<< ">" << endl;
+	//cout << "copy brain type: <" << copy->getType()<< ">" << endl;
+	//delete ori;
+	//copy->getBrain()->sayIdeas();
+	//delete copy;
 }

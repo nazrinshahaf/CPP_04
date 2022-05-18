@@ -6,7 +6,7 @@
 /*   By: nfernand <nfernand@student.42kl.edu.m      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 10:45:47 by nfernand          #+#    #+#             */
-/*   Updated: 2022/05/16 13:30:35 by nfernand         ###   ########.fr       */
+/*   Updated: 2022/05/17 14:37:32 by nazrinsha        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ Cat::~Cat()
 
 Cat::Cat(Cat const &tocopy)
 {
-	Cat		*res = new Cat();
 	cout << BLUE "Cat Copy Constructor called" RESET << endl;
 	*this = tocopy;
 	return ;
@@ -45,7 +44,7 @@ Cat		&Cat::operator=(Cat const &tocopy)
 {
 	cout << BLUE "Cat Assignment Operator called" RESET << endl;
 	this->setType(tocopy.getType());
-	this->_brain = tocopy.getBrain();
+	this->_brain = new Brain(*tocopy.getBrain());
 	return (*this);
 }
 
