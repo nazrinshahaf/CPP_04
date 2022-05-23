@@ -6,7 +6,7 @@
 /*   By: nfernand <nfernand@student.42kl.edu.m      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 10:08:34 by nfernand          #+#    #+#             */
-/*   Updated: 2022/05/12 13:34:03 by nfernand         ###   ########.fr       */
+/*   Updated: 2022/05/23 12:46:45 by nazrinsha        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ class	Animal
 {
 	public:
 		Animal();
+		Animal(Animal const &tocopy);
 		virtual	~Animal();
 
+		Animal			&operator=(Animal const &tocopy);
 		virtual void	makeSound() const;
 
 		void	setType(const string type);

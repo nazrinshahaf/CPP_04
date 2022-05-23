@@ -6,7 +6,7 @@
 /*   By: nfernand <nfernand@student.42kl.edu.m      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:43:13 by nfernand          #+#    #+#             */
-/*   Updated: 2022/05/12 13:59:24 by nfernand         ###   ########.fr       */
+/*   Updated: 2022/05/23 13:07:24 by nazrinsha        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ class	WrongCat: public WrongAnimal
 		void	makeSound() const;
 
 	private:
-
 };
 
 #endif

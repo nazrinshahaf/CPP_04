@@ -6,7 +6,7 @@
 /*   By: nfernand <nfernand@student.42kl.edu.m      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:40:20 by nfernand          #+#    #+#             */
-/*   Updated: 2022/05/12 13:59:13 by nfernand         ###   ########.fr       */
+/*   Updated: 2022/05/23 13:06:34 by nazrinsha        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class	WrongAnimal
 {
 	public:
 		WrongAnimal();
-		virtual	~WrongAnimal();
+		~WrongAnimal();
 
 		void	makeSound() const;
 

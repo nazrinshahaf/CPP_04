@@ -1,6 +1,7 @@
 NAME = Animal
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
+FSANITIZE = -fsanitize=address -g3
 RM = rm -f
 
 SRC = Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp\
@@ -8,7 +9,7 @@ SRC = Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp\
 MAIN = main.cpp
 
 $(NAME):
-	$(CC) $(CFLAGS) $(MAIN) $(SRC) -o $(NAME)
+	$(CC) $(CFLAGS) $(FSANITIZE) $(MAIN) $(SRC) -o $(NAME)
 
 all: $(NAME)
 

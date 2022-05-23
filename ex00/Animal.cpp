@@ -6,7 +6,7 @@
 /*   By: nfernand <nfernand@student.42kl.edu.m      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 10:10:54 by nfernand          #+#    #+#             */
-/*   Updated: 2022/05/12 13:37:15 by nfernand         ###   ########.fr       */
+/*   Updated: 2022/05/23 12:49:05 by nazrinsha        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,19 @@ Animal::Animal()
 Animal::~Animal()
 {
 	cout << RED "Animal Destructor called" RESET << endl;
+}
+
+Animal::Animal(Animal const &tocopy)
+{
+	cout << GREEN "Animal Copy Constructor called" RESET << endl;
+	setType(tocopy.getType());
+}
+
+Animal	&Animal::operator=(Animal const &tocopy)
+{
+	cout << GREEN "Animal Copy Assignment Operator called" RESET << endl;
+	setType(tocopy.getType());
+	return (*this);
 }
 
 void	Animal::makeSound() const 

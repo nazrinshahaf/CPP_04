@@ -6,7 +6,7 @@
 /*   By: nfernand <nfernand@student.42kl.edu.m      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 10:45:47 by nfernand          #+#    #+#             */
-/*   Updated: 2022/05/12 13:36:06 by nfernand         ###   ########.fr       */
+/*   Updated: 2022/05/23 12:54:48 by nazrinsha        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,19 @@ Cat::Cat()
 Cat::~Cat()
 {
 	cout << RED "Cat Destructor called" RESET << endl;
+}
+
+Cat::Cat(Cat const &tocopy)
+{
+	cout << GREEN "Cat Copy Constructor called" RESET << endl;
+	setType(tocopy.getType());
+}
+
+Cat		&Cat::operator=(Cat const &tocopy)
+{
+	cout << GREEN "Cat Copy Assignment Operator called" RESET << endl;
+	setType(tocopy.getType());
+	return (*this);
 }
 
 void	Cat::makeSound() const 
