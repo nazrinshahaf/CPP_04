@@ -6,7 +6,7 @@
 /*   By: nazrinshahaf <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 12:11:33 by nazrinsha         #+#    #+#             */
-/*   Updated: 2022/05/22 13:12:14 by nazrinsha        ###   ########.fr       */
+/*   Updated: 2022/05/23 12:41:37 by nazrinsha        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,26 +154,42 @@ int	main()
 
 	//delete ice;
 	
-	IMateriaSource	*source = new MateriaSource();
-	AMateria		*ice = new Ice();
-	AMateria		*cure = new Cure();
+	//IMateriaSource	*source = new MateriaSource();
+	//AMateria		*ice = new Ice();
+	//AMateria		*cure = new Cure();
 
-	cout << endl << endl;
-	source->learnMateria(ice);
-	source->learnMateria(ice);
-	source->learnMateria(cure);
-	source->learnMateria(cure);
-	cout << endl << endl;
+	//cout << endl << endl;
+	//source->learnMateria(ice);
+	//source->learnMateria(ice);
+	//source->learnMateria(cure);
+	//source->learnMateria(cure);
+	//cout << endl << endl;
 
-	source->listMateria();
-	cout << endl << endl;
+	//source->listMateria();
+	//cout << endl << endl;
 
-	AMateria		*ice_clone = source->createMateria("ice");
-	cout << ice_clone->getType() << endl;
-	cout << endl << endl;
+	//AMateria		*ice_clone = source->createMateria("ice");
+	//cout << ice_clone->getType() << endl;
+	//cout << endl << endl;
 
-	delete ice_clone;
-	delete cure;
-	delete ice;
-	delete source;
+	//delete ice_clone;
+	//delete cure;
+	//delete ice;
+	//delete source;
+	
+	IMateriaSource* src = new MateriaSource(); src->learnMateria(new Ice()); src->learnMateria(new Cure());
+	ICharacter* me = new Character("me");
+	AMateria* tmp;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	ICharacter* bob = new Character("bob"); me->use(0, *bob);
+    me->use(1, *bob);
+
+	delete bob;
+	delete me;
+	delete src;
+
+	return 0;
 }
