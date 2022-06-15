@@ -6,7 +6,7 @@
 /*   By: nfernand <nfernand@student.42kl.edu.m      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 10:10:54 by nfernand          #+#    #+#             */
-/*   Updated: 2022/05/12 13:37:15 by nfernand         ###   ########.fr       */
+/*   Updated: 2022/06/15 14:12:57 by nazrinsha        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,6 @@ Animal::Animal()
 Animal::~Animal()
 {
 	cout << RED "Animal Destructor called" RESET << endl;
-}
-
-void	Animal::makeSound() const 
-{
-	cout << "<" BLUE << this->getType() << RESET "> goes " MAGENTA "???" RESET << endl;
 }
 
 void	Animal::setType(const string type)
