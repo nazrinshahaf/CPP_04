@@ -6,7 +6,7 @@
 /*   By: nfernand <nfernand@student.42kl.edu.m      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 10:40:28 by nfernand          #+#    #+#             */
-/*   Updated: 2022/06/15 11:10:16 by nfernand         ###   ########.fr       */
+/*   Updated: 2022/06/15 13:55:23 by nazrinsha        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ Dog::~Dog()
 Dog::Dog(Dog const &tocopy)
 {
 	cout << BLUE "Dog Copy Constructor called" RESET << endl;
-	*this = tocopy;
+	this->setType(tocopy.getType());
+	this->_brain = new Brain(*tocopy.getBrain());
 	return ;
 }
 

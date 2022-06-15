@@ -6,7 +6,7 @@
 /*   By: nfernand <nfernand@student.42kl.edu.m      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 10:26:01 by nfernand          #+#    #+#             */
-/*   Updated: 2022/06/15 11:38:03 by nfernand         ###   ########.fr       */
+/*   Updated: 2022/06/15 13:54:23 by nazrinsha        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,11 @@ int	main()
 	//	return 0;
 	//}
 
-	cout << CYAN "[Testing something]" RESET << endl;
+	cout << CYAN "[Testing to see if brain is a deep copy or shallow copy]" RESET << endl;
 	{
 		Cat		*ori = new Cat();
 		Cat		*copy = new Cat(*ori);
+		cout << endl;
 
 		cout << MAGENTA "Printing out address and type for ori and copy..." RESET << endl;
 		cout << "ori brain address: " BLUE "<" << ori->getBrain() << ">" RESET << endl;
@@ -88,24 +89,6 @@ int	main()
 		cout << MAGENTA "Printing out ideas..." RESET << endl;
 		copy->getBrain()->sayIdeas();
 
-		delete copy;
-	}
-	cout << endl;
-
-	cout << CYAN "[Testing something]" RESET << endl;
-	{
-		Dog		*ori = new Dog();
-		Dog		*copy = new Dog(*ori);
-
-		cout << "ori brain address: <" << ori->getBrain() << ">" << endl;
-		cout << "copy brain address: <" << copy->getBrain() << ">" << endl;
-		cout << "ori brain type: <" << ori->getType()<< ">" << endl;
-		cout << "copy brain type: <" << copy->getType()<< ">" << endl;
-		copy->setType("fake cat");
-		cout << "ori brain type: <" << ori->getType()<< ">" << endl;
-		cout << "copy brain type: <" << copy->getType()<< ">" << endl;
-		delete ori;
-		copy->getBrain()->sayIdeas();
 		delete copy;
 	}
 	cout << endl;

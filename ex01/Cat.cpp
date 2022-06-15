@@ -6,7 +6,7 @@
 /*   By: nfernand <nfernand@student.42kl.edu.m      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 10:45:47 by nfernand          #+#    #+#             */
-/*   Updated: 2022/05/17 14:37:32 by nazrinsha        ###   ########.fr       */
+/*   Updated: 2022/06/15 13:52:06 by nazrinsha        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ Cat::~Cat()
 Cat::Cat(Cat const &tocopy)
 {
 	cout << BLUE "Cat Copy Constructor called" RESET << endl;
-	*this = tocopy;
+	this->setType(tocopy.getType());
+	this->_brain = new Brain(*tocopy.getBrain());
 	return ;
 }
 
