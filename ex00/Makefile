@@ -1,7 +1,7 @@
 NAME = Animal
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
-FSANITIZE = -fsanitize=address -g3
+FSANITIZE = -fsanitize=address
 RM = rm -f
 
 SRC = Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp\

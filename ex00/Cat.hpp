@@ -6,7 +6,7 @@
 /*   By: nfernand <nfernand@student.42kl.edu.m      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 10:43:51 by nfernand          #+#    #+#             */
-/*   Updated: 2022/05/23 12:50:01 by nazrinsha        ###   ########.fr       */
+/*   Updated: 2022/06/15 10:40:51 by nfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ class	Cat: public Animal
 		Cat(Cat const &tocopy);
 		~Cat();
 
-		Cat		&operator=(Cat const &tocopy);
-		void	makeSound()	const;
+		Cat				&operator=(Cat const &tocopy);
+		virtual void	makeSound()	const;
 
 	private:
 
