@@ -6,7 +6,7 @@
 /*   By: nazrinshahaf <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 13:30:31 by nazrinsha         #+#    #+#             */
-/*   Updated: 2022/05/20 13:35:05 by nazrinsha        ###   ########.fr       */
+/*   Updated: 2022/06/15 16:41:09 by nazrinsha        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ Cure::~Cure()
 Cure::Cure(Cure const &tocopy): AMateria("cure")
 {
 	cout << BLUE "Cure Copy Constructor called" RESET << endl;
-	this->setType(tocopy.getType());
+	this->_type = tocopy.getType();
 }
 
 Cure	&Cure::operator=(Cure const &tocopy)
 {
-	this->setType(tocopy.getType());
+	this->_type = tocopy.getType();
 	return (*this);
 }
 

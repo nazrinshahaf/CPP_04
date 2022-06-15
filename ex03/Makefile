@@ -1,7 +1,7 @@
 NAME = AMateria
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
-SANITIZE = -fsanitize=address -g3
+SANITIZE = -fsanitize=address
 RM = rm -f
 
 SRC = AMateria.cpp Character.cpp Ice.cpp Cure.cpp MateriaSource.cpp\

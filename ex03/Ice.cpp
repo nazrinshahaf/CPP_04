@@ -6,7 +6,7 @@
 /*   By: nazrinshahaf <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 12:15:05 by nazrinsha         #+#    #+#             */
-/*   Updated: 2022/05/20 13:23:14 by nazrinsha        ###   ########.fr       */
+/*   Updated: 2022/06/15 16:22:02 by nazrinsha        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ Ice::~Ice()
 Ice::Ice(Ice const &tocopy): AMateria("ice")
 {
 	cout << BLUE "Ice Copy Constructor called" RESET << endl;
-	this->setType(tocopy.getType());
+	this->_type = tocopy.getType();
 }
 
 Ice	&Ice::operator=(Ice const &tocopy)
 {
-	this->setType(tocopy.getType());
+	this->_type = tocopy.getType();
 	return (*this);
 }
 

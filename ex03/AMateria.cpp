@@ -6,7 +6,7 @@
 /*   By: nazrinshahaf <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 11:41:45 by nazrinsha         #+#    #+#             */
-/*   Updated: 2022/05/20 13:20:43 by nazrinsha        ###   ########.fr       */
+/*   Updated: 2022/06/15 16:25:49 by nazrinsha        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,26 +22,26 @@ using	std::string;
 using	std::cout;
 using	std::endl;
 
-AMateria::~AMateria()
-{
-	cout << RED "AMateria Destructor called" RESET << endl;
-}
-
 AMateria::AMateria(string const &type)
 {
 	cout << GREEN "AMateria Assignment Constructor called" RESET << endl;
 	setType(type);
 }
 
+AMateria::~AMateria()
+{
+	cout << RED "AMateria Destructor called" RESET << endl;
+}
+
 AMateria::AMateria(AMateria const &tocopy)
 {
 	cout << BLUE "AMateria Copy Constructor called" RESET << endl;
-	setType(tocopy.getType());
+	this->_type = tocopy.getType();
 }
 
 AMateria	&AMateria::operator=(AMateria const &tocopy)
 {
-	setType(tocopy.getType());
+	this->_type = tocopy.getType();
 	return (*this);
 }
 

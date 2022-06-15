@@ -6,7 +6,7 @@
 /*   By: nazrinshahaf <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 15:12:50 by nazrinsha         #+#    #+#             */
-/*   Updated: 2022/05/22 11:37:07 by nazrinsha        ###   ########.fr       */
+/*   Updated: 2022/06/15 17:16:42 by nazrinsha        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ using	std::endl;
 Character::Character()
 {
 	cout << GREEN "Character Defualt Constructor called" RESET << endl;
-	setName("");
+	this->_name = "";
 	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = NULL;
 	this->_inventory_count = 0;
@@ -31,8 +31,8 @@ Character::Character()
 
 Character::Character(string const name)
 {
-	cout << GREEN "Character Constructor called" RESET << endl;
-	setName(name);
+	cout << GREEN "Character Assignment Constructor called" RESET << endl;
+	this->_name = name;
 	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = NULL;
 	this->_inventory_count = 0;
@@ -44,31 +44,39 @@ Character::~Character(void)
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->_inventory[i])
-			this->_inventory[i] = NULL;
+			delete this->_inventory[i];
 	}
 }
 
 Character::Character(Character const &tocopy)
 {
 	cout << GREEN "Character Copy Constructor called" RESET << endl;
-	setName(tocopy.getName());
+	this->_name = tocopy.getName();
 	for (int i = 0; i < 4; i++)
 	{
-		this->_inventory[i] = tocopy._inventory[i];
 		if (this->_inventory[i])
+			delete this->_inventory[i];
+		if (tocopy._inventory[i])
+		{
+			this->_inventory[i] = tocopy._inventory[i]->clone();
 			this->_inventory_count++;
+		}
 	}
 }
 
 Character	&Character::operator=(Character const &tocopy)
 {
 	cout << GREEN "Character Copy Assignment Operator called" RESET << endl;
-	setName(tocopy.getName());
+	this->_name = tocopy.getName();
 	for (int i = 0; i < 4; i++)
 	{
-		this->_inventory[i] = tocopy._inventory[i];
 		if (this->_inventory[i])
+			delete this->_inventory[i];
+		if (tocopy._inventory[i])
+		{
+			this->_inventory[i] = tocopy._inventory[i]->clone();
 			this->_inventory_count++;
+		}
 	}
 	return (*this);
 }
@@ -81,7 +89,7 @@ void			Character::equip(AMateria *material)
 		{
 			if (this->_inventory[i] == NULL)
 			{
-				this->_inventory[i] = material;
+				this->_inventory[i] = material->clone();
 				this->_inventory_count++;
 				cout << BLUE "<" << this->getName() << "> " RESET "has equipped" 
 					MAGENTA " <" << material->getType() << "> " RESET "in slot [" << i << "]" << endl;
@@ -98,6 +106,7 @@ void			Character::unequip(int id)
 	{
 		cout << BLUE "<" << this->getName() << "> " RESET "has unequipped" 
 			MAGENTA " <" << this->_inventory[id]->getType() << "> " RESET "from slot [" << id << "]" << endl;
+		delete this->_inventory[id];
 		this->_inventory[id] = NULL;
 		this->_inventory_count--;
 		return ;

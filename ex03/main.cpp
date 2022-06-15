@@ -6,7 +6,7 @@
 /*   By: nazrinshahaf <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 12:11:33 by nazrinsha         #+#    #+#             */
-/*   Updated: 2022/05/23 12:41:37 by nazrinsha        ###   ########.fr       */
+/*   Updated: 2022/06/15 17:38:33 by nazrinsha        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,19 +177,65 @@ int	main()
 	//delete ice;
 	//delete source;
 	
-	IMateriaSource* src = new MateriaSource(); src->learnMateria(new Ice()); src->learnMateria(new Cure());
-	ICharacter* me = new Character("me");
-	AMateria* tmp;
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
-	ICharacter* bob = new Character("bob"); me->use(0, *bob);
-    me->use(1, *bob);
+//	IMateriaSource* src = new MateriaSource(); 
+//	
+//	src->learnMateria(new Ice()); 
+//	src->learnMateria(new Cure());
+//	ICharacter* me = new Character("me");
+//	AMateria* tmp;
+//	tmp = src->createMateria("ice");
+//	me->equip(tmp);
+//	tmp = src->createMateria("cure");
+//	me->equip(tmp);
+//	ICharacter* bob = new Character("bob"); me->use(0, *bob);
+//    me->use(1, *bob);
+//
+//	delete bob;
+//	delete me;
+//	delete src;
+//
+//	system("leaks AMateria");
+//
+//	return 0;
 
-	delete bob;
-	delete me;
-	delete src;
+	cout << CYAN "[Testing deep copy for Character Copy Constructor...]" RESET << endl;
+	{
+		AMateria	*ice = new Ice();
+		AMateria	*ice2 = new Ice();
+		cout << endl;
 
-	return 0;
+		Character	*ori = new Character("ori");
+		Character	*copy = new Character("copy");
+		cout << endl;
+
+		cout << MAGENTA "Filling up 2 invetory slots to ori..." RESET << endl;
+		ori->equip(ice2);
+		ori->equip(ice2);
+
+		cout << endl;
+		ori->listInventory();
+		cout << endl;
+
+		cout << MAGENTA "Filling up 1 invetory slot to copy..." RESET << endl;
+		copy->equip(ice);
+		cout << endl;
+
+		cout << MAGENTA "copy copying ori (to test that copy constructor deleting doesn't leave leaks)..." RESET << endl;
+		*copy = *ori;
+		cout << endl;
+
+		cout << MAGENTA "Deleting ice materias and ori (to test that the materias in invetories deep copies)..." RESET << endl;
+		delete ice2;
+		delete ice;
+		delete ori;
+		cout << endl;
+
+		cout << MAGENTA "Printing out copy inventory..." RESET << endl;
+		copy->listInventory();
+		cout << endl;
+
+		delete copy;
+		system("leaks AMateria");
+	}
+	cout << endl;
 }
