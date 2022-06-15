@@ -6,24 +6,37 @@
 /*   By: nfernand <nfernand@student.42kl.edu.m      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 14:08:02 by nfernand          #+#    #+#             */
-/*   Updated: 2022/05/17 14:37:58 by nazrinsha        ###   ########.fr       */
+/*   Updated: 2022/06/15 11:31:48 by nfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <iostream>
+#include <sstream>
 
 #include "Brain.hpp"
 
 #include "colours.h"
-#include <iostream>
 
 using	std::string;
 using	std::endl;
 using	std::cout;
 
+std::string intToString(int n)
+{
+	std::ostringstream ss;
+	ss << n;
+	return ss.str();
+}
+
 Brain::Brain()
 {
 	cout << MAGENTA "<Brain> " GREEN "Constructor called" RESET << endl;
+
+	//why the fuck does the compile??? to_string is a c++11 feature
+	//for (int i = 0; i < 100; i++)
+	//	this->_ideas[i] = "brain idea" + std::to_string(i);
 	for (int i = 0; i < 100; i++)
-		this->_ideas[i] = "something something " + std::to_string(i);
+		this->_ideas[i] = "brain idea <" + intToString(i) + ">";
 }
 
 Brain::~Brain()

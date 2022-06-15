@@ -6,7 +6,7 @@
 /*   By: nfernand <nfernand@student.42kl.edu.m      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 10:08:34 by nfernand          #+#    #+#             */
-/*   Updated: 2022/05/18 18:01:04 by nazrinsha        ###   ########.fr       */
+/*   Updated: 2022/06/15 11:04:53 by nfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class	Animal
 		void	setType(const string type);
 		string	getType() const;
 
-	private:
+	protected:
 		string	_type;
 };
 

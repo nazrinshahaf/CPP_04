@@ -6,7 +6,7 @@
 /*   By: nfernand <nfernand@student.42kl.edu.m      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 10:40:28 by nfernand          #+#    #+#             */
-/*   Updated: 2022/05/18 18:09:50 by nazrinsha        ###   ########.fr       */
+/*   Updated: 2022/06/15 11:10:16 by nfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ Dog::Dog(Dog const &tocopy)
 	return ;
 }
 
-Dog	&Dog::operator=(Dog const &tocopy)
+Dog		&Dog::operator=(Dog const &tocopy)
 {
 	cout << BLUE "Dog Copy Assignment Operator called" RESET << endl;
 	this->setType(tocopy.getType());
