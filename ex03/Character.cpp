@@ -6,7 +6,7 @@
 /*   By: nazrinshahaf <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 15:12:50 by nazrinsha         #+#    #+#             */
-/*   Updated: 2022/06/15 17:16:42 by nazrinsha        ###   ########.fr       */
+/*   Updated: 2022/06/16 15:16:56 by nfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,46 +91,46 @@ void			Character::equip(AMateria *material)
 			{
 				this->_inventory[i] = material->clone();
 				this->_inventory_count++;
-				cout << BLUE "<" << this->getName() << "> " RESET "has equipped" 
+				cout << BLUE "<" << this->_name << "> " RESET "has equipped" 
 					MAGENTA " <" << material->getType() << "> " RESET "in slot [" << i << "]" << endl;
 				return ;
 			}
 		}
 	}
-	cout << BLUE "<" << this->getName() << ">'s " RESET "inventory is full" << endl;
+	cout << BLUE "<" << this->_name << ">'s " RESET "inventory is full" << endl;
 }
 
 void			Character::unequip(int id)
 {
-	if (this->_inventory[id] != NULL)
+	if (id > 0 && id < 4)
 	{
-		cout << BLUE "<" << this->getName() << "> " RESET "has unequipped" 
-			MAGENTA " <" << this->_inventory[id]->getType() << "> " RESET "from slot [" << id << "]" << endl;
-		delete this->_inventory[id];
-		this->_inventory[id] = NULL;
-		this->_inventory_count--;
+		if (this->_inventory[id] != NULL)
+		{
+			cout << BLUE "<" << this->_name << "> " RESET "has unequipped" 
+				MAGENTA " <" << this->_inventory[id]->getType() << "> " RESET "from slot [" << id << "]" << endl;
+			delete this->_inventory[id];
+			this->_inventory[id] = NULL;
+			this->_inventory_count--;
+			return ;
+		}
+		cout << BLUE "<" << this->_name << ">'s " RESET "has nothing in slot ["<< id << "]" << endl;
 		return ;
 	}
-	cout << BLUE "<" << this->getName() << ">'s " RESET "has nothing in slot ["<< id << "]" << endl;
+	cout << BLUE "<" << this->_name << "> " RESET "does not even have that many inventory slots" << endl;
 }
 
 void			Character::use(int id, ICharacter &target)
 {
-	if (id >= 4)
+	if (id >= 4 || id < 0)
 	{
-		cout << BLUE "<" << this->getName() << "> " RESET
+		cout << BLUE "<" << this->_name << "> " RESET
 			"does not even have that many inventory slots" << endl;
-		return ;
 	}
-	if (this->_inventory[id])
-	{
-		cout << BLUE "<" << this->getName() << "> " RESET "uses "
-			MAGENTA "<" << this->_inventory[id]->getType() << "> " RESET "on "
-			RED "<" << target.getName() << "> " RESET << endl;
-	}
+	else if (this->_inventory[id])
+		this->_inventory[id]->use(target);
 	else
 	{
-		cout << BLUE "<" << this->getName() << "> " RESET 
+		cout << BLUE "<" << this->_name << "> " RESET 
 			"has nothing in inventory slot id" << endl;
 	}
 }
@@ -140,10 +140,10 @@ void			Character::listInventory(void) const
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->_inventory[i])
-			cout << BLUE "<" << this->getName() << "> " RESET "has" 
+			cout << BLUE "<" << this->_name << "> " RESET "has" 
 				MAGENTA " <" << _inventory[i]->getType() << "> " RESET "equipped in in slot [" << i << "]" << endl;
 		else
-			cout << BLUE "<" << this->getName() << "> " RESET "has" 
+			cout << BLUE "<" << this->_name << "> " RESET "has" 
 				MAGENTA " <None> " RESET "equipped in in slot [" << i << "]" << endl;
 	}
 }

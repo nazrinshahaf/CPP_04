@@ -6,7 +6,7 @@
 /*   By: nazrinshahaf <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 13:30:31 by nazrinsha         #+#    #+#             */
-/*   Updated: 2022/06/15 16:41:09 by nazrinsha        ###   ########.fr       */
+/*   Updated: 2022/06/16 11:28:32 by nfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Cure::Cure(): AMateria("cure")
 
 Cure::~Cure()
 {
-	cout << GREEN "Cure Destructor called" RESET << endl;
+	cout << RED "Cure Destructor called" RESET << endl;
 }
 
 Cure::Cure(Cure const &tocopy): AMateria("cure")

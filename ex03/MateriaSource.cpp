@@ -6,7 +6,7 @@
 /*   By: nazrinshahaf <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 12:03:18 by nazrinsha         #+#    #+#             */
-/*   Updated: 2022/05/22 13:08:52 by nazrinsha        ###   ########.fr       */
+/*   Updated: 2022/06/16 14:37:03 by nfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void			MateriaSource::learnMateria(AMateria *materia)
 	{
 		cout << "MateriaSource is too full to learn materia of type " 
 			MAGENTA "<" << materia->getType() << ">" RESET << endl;
+		return ;
 	}
 	for (int i = 0; i < 4; i++)
 	{
@@ -89,6 +90,7 @@ void			MateriaSource::learnMateria(AMateria *materia)
 			this->_materias[i] = materia->clone();
 			cout << "Materia of type " MAGENTA "<" << materia->getType() << "> "
 				RESET << "has been learnt" << endl;
+			this->_materia_count++;
 			return ;
 		}
 	}

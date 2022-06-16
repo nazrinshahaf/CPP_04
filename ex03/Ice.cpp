@@ -6,7 +6,7 @@
 /*   By: nazrinshahaf <marvin@42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 12:15:05 by nazrinsha         #+#    #+#             */
-/*   Updated: 2022/06/15 16:22:02 by nazrinsha        ###   ########.fr       */
+/*   Updated: 2022/06/16 11:28:42 by nfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Ice::Ice(): AMateria("ice")
 
 Ice::~Ice()
 {
-	cout << GREEN "Ice Destructor called" RESET << endl;
+	cout << RED "Ice Destructor called" RESET << endl;
 }
 
 Ice::Ice(Ice const &tocopy): AMateria("ice")
